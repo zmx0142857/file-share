@@ -1,3 +1,4 @@
+const indexHtml = `
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -152,3 +153,5 @@
 </script>
 </body>
 </html>
+`
+export default indexHtml

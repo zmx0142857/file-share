@@ -3,6 +3,7 @@ import cors from 'cors'
 import fileUpload from 'express-fileupload'
 import fs from 'fs'
 import path from 'path'
+import indexHtml from  './index.js'
 
 const app = express()
 app.use(cors())
@@ -47,7 +48,7 @@ app.post('/upload', (req, res) => {
   res.json({ code: 200, msg: 'ok', data })
 })
 
-app.get('/', (req, res) => res.send(fs.readFileSync('index.html', 'utf-8')))
+app.get('/', (req, res) => res.send(indexHtml))
 
 const argv = process.argv.slice(2)
 const port = argv[0] || 3001
