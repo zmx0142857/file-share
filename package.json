@@ -1,6 +1,6 @@
 {
     "name": "@zmx0142857/file-share",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "type": "module",
     "engines": {
         "node": ">=16.0.0"

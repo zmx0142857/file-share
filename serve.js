@@ -4,6 +4,7 @@ import fileUpload from 'express-fileupload'
 import fs from 'fs'
 import path from 'path'
 import indexHtml from  './index.js'
+import os from 'os'
 
 const app = express()
 app.use(cors())
@@ -52,4 +53,5 @@ app.get('/', (req, res) => res.send(indexHtml))
 
 const argv = process.argv.slice(2)
 const port = argv[0] || 3001
-app.listen(port, () => console.log(`server is running at port http://localhost:${port}`))
+const ip = Object.values(os.networkInterfaces()).flat().find(v => v.family === 'IPv4').address
+app.listen(port, () => console.log(`🚀 server running at http://${ip}:${port}`))
