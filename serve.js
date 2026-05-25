@@ -4,7 +4,7 @@ import cors from 'cors'
 import fileUpload from 'express-fileupload'
 import fs from 'fs'
 import path from 'path'
-import indexHtml from  './index.js'
+import url from 'url'
 import os from 'os'
 
 const app = express()
@@ -50,6 +50,8 @@ app.post('/upload', (req, res) => {
   res.json({ code: 200, msg: 'ok', data })
 })
 
+const filepath = url.fileURLToPath(import.meta.url).replace(/serve\.js$/, 'index.html')
+const indexHtml = fs.readFileSync(filepath, 'utf-8')
 app.get('/', (req, res) => res.send(indexHtml))
 
 const argv = process.argv.slice(2)
